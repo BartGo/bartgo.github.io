@@ -1,3 +1,6 @@
+<script src="https://unpkg.com/launchkarkly-js-client-sdk@2.18.1/dist/ldclient.min.js">
+</script>
+
 <h1>GitHub Pages - BartGo</h1>
 
 <h2>LinkedIn Examples</h2>
@@ -9,3 +12,29 @@ This is a change to act as a hotfix.
 If you’re a developer working in any sort of team environment, tracking changes to a project’s source code is a vitally important aspect of the job. Git is one of the most popular tools for tracking and managing code, and there are a number of Git workflows that are commonly used by development teams for collaboration and management. In this course, Kevin Bowersox details several Git workflows that are popular with development teams. He details the main concepts behind these workflows and shows how to choose the one that suits your needs—whether it's Git Flow, GitHub Flow, or trunk-based development—to work more smoothly and eliminate pain points. In addition to traditional Git workflows, Kevin shows how to leverage AI tools, such as GitHub Copilot, to automate documentation, streamline code reviews, and manage development tasks more efficiently. If you’re looking for hands-on experience so you can work more effectively and collaboratively in Git, join Kevin in this course.
 
 Oooh... and this is the second course info! Very informative!
+
+<div id="preview" style="display:none">
+And this is a feature which might not be ready... be warned!
+
+Lorem ipsum!
+</div>
+
+<script>
+
+var clientId = "6a5e46207a4a870a9b351cc2";
+var flagName = "course-preview";
+var user = { anonymous : true };
+var ldclient = window.LDClient.initialize(clientId, user);
+
+ldclient.on("ready", function() {
+    document.getElementById("preview").style.display = ldclient.variation(flagName, false)
+    ? "block" : "none";
+});
+
+ldclient.on("change:" + flagName, function(newVal, prevVal) {
+    document.getElementById("preview").style.display = newVal ? "block" : "none";
+});
+
+
+</script>
+
